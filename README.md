@@ -1,4 +1,4 @@
-# RecurrentFlowNet
+# Recurrent Flow Network Implementation in MATLAB
 Recurrent Flow Network for Occupancy Flow ([paper](http://cpslab.snu.ac.kr/publications/papers/2016_IROS_OccFlow.pdf))
 
 ## How to Run?
