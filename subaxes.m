@@ -1,12 +1,5 @@
 function subaxes(figHandler, h, w, index, mx, my)
-% subplot?? ??????, margin?? ???? ?????? ?? ?????? ?????? ????. 
-% 
-% figHandler : Figure handler
-% h          : ???? subfigure?? height
-% w          : ???? subfigure?? width
-% index      : subfigure?? inded
-% (margin)   : margin
-% 
+
 if nargin == 4
     mx = 0.1;
     my = 0.1;
@@ -21,7 +14,7 @@ h_idx = h - h_idx - 1;
 w_unit = 1/w;
 h_unit = 1/h;
 
-x_start = w_unit*(w_idx) + mx/2;
+x_start = w_unit*(w_idx) + mx;
 y_start = h_unit*(h_idx) + my/2;
 x_len = w_unit-mx;
 y_len = h_unit-my;

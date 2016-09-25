@@ -1,5 +1,6 @@
 function [xtemp, ytemp, ru, rv] ...
-= get_dirflow(u, v, valid_idx, robot, ginfo, quiver_rate, min_quiver, max_quiver, resize_rate)
+    = get_dirflow(u, v, valid_idx, robot, ginfo ...
+    , quiver_rate, min_quiver, max_quiver, resize_rate)
 
 % Quiver plot
 temp_idx = find(valid_idx ~= 1);
@@ -24,7 +25,7 @@ nx_res = round(ginfo.nx*resize_rate);
 
 xvec = xtemp(:); yvec = ytemp(:); xyvec = [xvec yvec];
 deg = robot.pos(3); c = cos(deg*pi/180); s = sin(deg*pi/180);
-rotmat = [c s ; -s c]; 
+rotmat = [c s ; -s c];
 xyvec  = xyvec * rotmat + repmat(robot.pos(1:2), nx_res*ny_res, 1);
 xvec   = xyvec(:, 1); yvec = xyvec(:, 2);
 xtemp  = reshape(xvec, ny_res, nx_res); ytemp = reshape(yvec, ny_res, nx_res);

@@ -6,7 +6,7 @@ nei.nei_weight = zeros(g.n, nei.filter.n);
 nei.filnter_n  = nei.filter.n;
 for i = 1:g.n
     curr_xyidx = g.xyidx(i, :);
-    for j = 1:nei.filter.n % j는 context layer의 level을 의미한다.
+    for j = 1:nei.filter.n 
         shift_xyidx = nei.filter.shift_xyi(j, :);
         nei_xyidx = curr_xyidx + shift_xyidx;
         if nei_xyidx(1) > 0 && nei_xyidx(2) > 0 && nei_xyidx(1) <= g.nx && nei_xyidx(2) <= g.ny
@@ -16,6 +16,8 @@ for i = 1:g.n
         end
     end
 end
+
+
 
 function nei = set_neifilter(xres, yres, sig, roundshape)
 %

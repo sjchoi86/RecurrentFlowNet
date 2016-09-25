@@ -22,9 +22,9 @@ layer.nei4uyres = nei4uyres;
 layer.nei4usig = nei4usig;
 
 % Set neighboorhood structure
-roundshape = 1;
+roundshape = 0;
 layer.nei = set_nei(g, neixres, neiyres, neisig, roundshape);
-layer.nei4u = set_nei(g, nei4uxres, nei4uyres, nei4usig, roundshape);
+layer.nei4u = set_nei4u(g, nei4uxres, nei4uyres, nei4usig, roundshape);
 
 % Update parameters
 layer.minthreshold          = minthreshold;

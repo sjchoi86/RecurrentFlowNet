@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.coder" plugin-version="R2015a">
-  <configuration build-checksum="1136893519" file="E:\Dropbox\Research\Implementation in papers\2016_IROS_OCCFLOWnew\occflow\occflow.prj" location="E:\Dropbox\Research\Implementation in papers\2016_IROS_OCCFLOWnew\occflow" name="occflow" target="target.unifiedcoder" target-name="MATLAB Coder">
+  <configuration build-checksum="2408853091" file="E:\Dropbox\Research\Implementation in papers\2017_IJRR_RecurrentFlowNet\occflow.prj" location="E:\Dropbox\Research\Implementation in papers\2017_IJRR_RecurrentFlowNet" name="occflow" target="target.unifiedcoder" target-name="MATLAB Coder">
     <profile key="profile.mex">
       <param.BuiltInstrumentedMex>false</param.BuiltInstrumentedMex>
       <param.RanInstrumentedMex>false</param.RanInstrumentedMex>
@@ -8,10 +8,10 @@
       <param.BuildFolder>option.BuildFolder.Project</param.BuildFolder>
       <param.SpecifiedBuildFolder />
       <param.SearchPaths />
-      <param.ResponsivenessChecks>true</param.ResponsivenessChecks>
-      <param.ExtrinsicCalls>true</param.ExtrinsicCalls>
-      <param.IntegrityChecks>true</param.IntegrityChecks>
-      <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
+      <param.ResponsivenessChecks>false</param.ResponsivenessChecks>
+      <param.ExtrinsicCalls>false</param.ExtrinsicCalls>
+      <param.IntegrityChecks>false</param.IntegrityChecks>
+      <param.SaturateOnIntegerOverflow>false</param.SaturateOnIntegerOverflow>
       <param.GlobalDataSyncMethod>option.GlobalDataSyncMethod.SyncAlways</param.GlobalDataSyncMethod>
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
       <param.DynamicMemoryAllocation>option.DynamicMemoryAllocation.Threshold</param.DynamicMemoryAllocation>
@@ -59,12 +59,6 @@
         <param.BuildFolder />
         <param.SpecifiedBuildFolder />
         <param.SearchPaths />
-        <param.ResponsivenessChecks />
-        <param.ExtrinsicCalls />
-        <param.IntegrityChecks />
-        <param.SaturateOnIntegerOverflow />
-        <param.EnableVariableSizing />
-        <param.DynamicMemoryAllocation />
         <param.DynamicMemoryAllocationThreshold />
         <param.StackUsageMax />
         <param.FilePartitionMethod />
@@ -76,7 +70,6 @@
         <param.LaunchReport />
         <param.DefaultTestFile />
         <param.MergeInstrumentationResults />
-        <param.VerificationStatus />
         <param.CustomSourceCode />
         <param.CustomHeaderCode />
         <param.CustomInitializer />
@@ -88,7 +81,6 @@
         <param.ConstantFoldingTimeout />
         <param.RecursionLimit />
         <param.PreserveVariableNames />
-        <param.TargetLang />
         <param.EchoExpressions />
         <param.InlineThreshold />
         <param.InlineThresholdMax />
@@ -107,7 +99,7 @@
       <param.BuildFolder>option.BuildFolder.Project</param.BuildFolder>
       <param.SpecifiedBuildFolder />
       <param.SearchPaths />
-      <param.SaturateOnIntegerOverflow>true</param.SaturateOnIntegerOverflow>
+      <param.SaturateOnIntegerOverflow />
       <param.PurelyIntegerCode />
       <param.SupportNonFinite />
       <param.EnableVariableSizing>true</param.EnableVariableSizing>
@@ -283,7 +275,6 @@
         <param.CustomLibrary />
         <param.PostCodeGenCommand />
         <param.TargetLangStandard />
-        <param.CodeReplacementLibrary />
         <param.DeprecatedCRLFlag />
         <param.SameHardware />
         <param.HardwareType.Production />
@@ -685,7 +676,7 @@
     <param.AutoInferVariableSizeThreshold>1024</param.AutoInferVariableSizeThreshold>
     <param.AutoInferUnboundedSizeThreshold>2048</param.AutoInferUnboundedSizeThreshold>
     <param.EnableFixedPointStep>false</param.EnableFixedPointStep>
-    <param.AnnotationChecksum>1078699412</param.AnnotationChecksum>
+    <param.AnnotationChecksum>2179251713</param.AnnotationChecksum>
     <var.LegacyTarget />
     <var.MirrorOnOpen>false</var.MirrorOnOpen>
     <param.FixedPointEnabled>false</param.FixedPointEnabled>
@@ -702,10 +693,450 @@
     <param.FixedPointMode>option.FixedPointMode.None</param.FixedPointMode>
     <param.AutoScaleLoopIndexVariables>false</param.AutoScaleLoopIndexVariables>
     <param.ComputedFixedPointData>
-      <ComputedEntities />
+      <ComputedEntities>
+        <Function file="$(PROJECTDIR)/occflow.m" name="occflow" specialization="occflow" specializationId="-1" uniqueId="occflow">
+          <Variable name="predvec">
+            <Column property="Kind" type="String" value="output" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="cgridvecprev">
+            <Column property="Kind" type="String" value="input_output" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="context">
+            <Column property="Kind" type="String" value="input_output" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="maxvec">
+            <Column property="Kind" type="String" value="output" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="cgridvec">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei_idx">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei_weight">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei_filter_n">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei4u_idx">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei4u_weight">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nei4u_filter_n">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="occval">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="minthreshold">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="maxthreshold">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="reinitval">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="intensifyrate">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="nocc_attenuaterate">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="unknown_attenuaterate">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="sigm_coef">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="newlyoccidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nrnewlyocc">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="occidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nrocc">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="noccidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="nrnocc">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="j">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="coccidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="curr_col">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>-1</size>
+              <dynamic>false</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="updt_col">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>-1</size>
+              <dynamic>false</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="cnoccidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="cpropidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="cneicon">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>-1</size>
+              <dynamic>false</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="cneiweight">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>-1</size>
+              <dynamic>false</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="k">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="contextval">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="neiidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="weightval">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="origvontextval">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="updtcontextval">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="tempcontext">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>-1</size>
+              <dynamic>true</dynamic>
+              <dynamic>true</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="sumval">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="m">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="nidx">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="nwei">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="curr_val">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+        </Function>
+        <Function file="$(PROJECTDIR)/occflow.m" name="sigm" specialization="sigm" specializationId="-1" uniqueId="f125_sigm">
+          <Variable name="y">
+            <Column property="Kind" type="String" value="output" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="x">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>-1</size>
+              <size>1</size>
+              <dynamic>true</dynamic>
+              <dynamic>false</dynamic>
+            </MATLABType>
+          </Variable>
+          <Variable name="sigm_a">
+            <Column property="Kind" type="String" value="input" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+          <Variable name="a">
+            <Column property="Kind" type="String" value="local" />
+            <MATLABType class="double" complex="false">
+              <size>1</size>
+              <size>1</size>
+            </MATLABType>
+          </Variable>
+        </Function>
+      </ComputedEntities>
     </param.ComputedFixedPointData>
     <param.UserFixedPointData>
-      <UserEntities />
+      <UserEntities>
+        <Function file="$(PROJECTDIR)/occflow.m" name="occflow" specialization="occflow" specializationId="-1" uniqueId="occflow">
+          <Variable name="predvec" />
+          <Variable name="cgridvecprev" />
+          <Variable name="context" />
+          <Variable name="maxvec" />
+          <Variable name="cgridvec" />
+          <Variable name="nei_idx" />
+          <Variable name="nei_weight" />
+          <Variable name="nei_filter_n" />
+          <Variable name="nei4u_idx" />
+          <Variable name="nei4u_weight" />
+          <Variable name="nei4u_filter_n" />
+          <Variable name="occval" />
+          <Variable name="minthreshold" />
+          <Variable name="maxthreshold" />
+          <Variable name="reinitval" />
+          <Variable name="intensifyrate" />
+          <Variable name="nocc_attenuaterate" />
+          <Variable name="unknown_attenuaterate" />
+          <Variable name="sigm_coef" />
+          <Variable name="newlyoccidx" />
+          <Variable name="nrnewlyocc" />
+          <Variable name="occidx" />
+          <Variable name="nrocc" />
+          <Variable name="noccidx" />
+          <Variable name="nrnocc" />
+          <Variable name="j" />
+          <Variable name="coccidx" />
+          <Variable name="curr_col" />
+          <Variable name="updt_col" />
+          <Variable name="cnoccidx" />
+          <Variable name="cpropidx" />
+          <Variable name="cneicon" />
+          <Variable name="cneiweight" />
+          <Variable name="k" />
+          <Variable name="contextval" />
+          <Variable name="neiidx" />
+          <Variable name="weightval" />
+          <Variable name="origvontextval" />
+          <Variable name="updtcontextval" />
+          <Variable name="tempcontext" />
+          <Variable name="sumval" />
+          <Variable name="m" />
+          <Variable name="nidx" />
+          <Variable name="nwei" />
+          <Variable name="curr_val" />
+        </Function>
+        <Function file="$(PROJECTDIR)/occflow.m" name="sigm" specialization="sigm" specializationId="-1" uniqueId="f125_sigm">
+          <Variable name="y" />
+          <Variable name="x" />
+          <Variable name="sigm_a" />
+          <Variable name="a" />
+        </Function>
+      </UserEntities>
     </param.UserFixedPointData>
     <param.DefaultWordLength>16</param.DefaultWordLength>
     <param.DefaultFractionLength>4</param.DefaultFractionLength>
@@ -720,18 +1151,13 @@
     <param.ShowCoverage>true</param.ShowCoverage>
     <param.ExcludedFixedPointVerificationFiles />
     <param.ExcludedFixedPointSimulationFiles />
-    <param.InstrumentedBuildChecksum />
+    <param.InstrumentedBuildChecksum>2859362427</param.InstrumentedBuildChecksum>
     <param.FixedPointStaticAnalysisChecksum />
-    <param.InstrumentedMexFile />
+    <param.InstrumentedMexFile>${PROJECT_ROOT}\codegen\occflow\fixpt\occflow_float_mex.mexmaci64</param.InstrumentedMexFile>
     <param.FixedPointValidationChecksum />
     <param.FixedPointSourceCodeChecksum />
     <param.FixedPointFunctionReplacements>
-      <FunctionReplacements>
-        <Replacement />
-        <Replacement />
-        <Replacement />
-        <Replacement />
-      </FunctionReplacements>
+      <FunctionReplacements />
     </param.FixedPointFunctionReplacements>
     <param.OptimizeWholeNumbers>true</param.OptimizeWholeNumbers>
     <param.ContainerTypes>false</param.ContainerTypes>
@@ -779,9 +1205,7 @@
       <param.ShowCoverage />
       <param.ExcludedFixedPointVerificationFiles />
       <param.ExcludedFixedPointSimulationFiles />
-      <param.InstrumentedBuildChecksum />
       <param.FixedPointStaticAnalysisChecksum />
-      <param.InstrumentedMexFile />
       <param.FixedPointValidationChecksum />
       <param.FixedPointSourceCodeChecksum />
       <param.OptimizeWholeNumbers />
@@ -932,20 +1356,12 @@
             <UserDefined>false</UserDefined>
             <Complex>false</Complex>
           </Input>
-          <Input Name="do_attenuation_first">
-            <Class>double</Class>
-            <Size>1 x 1</Size>
-            <Value />
-            <InitialValue />
-            <UserDefined>false</UserDefined>
-            <Complex>false</Complex>
-          </Input>
         </Inputs>
       </file>
     </fileset.entrypoints>
     <fileset.testbench />
     <build-deliverables>
-      <file location="E:\Dropbox\Research\Implementation in papers\2016_IROS_OCCFLOWnew\occflow" name="occflow_mex.mexw64" optional="false">E:\Dropbox\Research\Implementation in papers\2016_IROS_OCCFLOWnew\occflow\occflow_mex.mexw64</file>
+      <file location="E:\Dropbox\Research\Implementation in papers\2017_IJRR_RecurrentFlowNet" name="occflow_mex.mexw64" optional="false">E:\Dropbox\Research\Implementation in papers\2017_IJRR_RecurrentFlowNet\occflow_mex.mexw64</file>
     </build-deliverables>
     <workflow />
     <matlab>
