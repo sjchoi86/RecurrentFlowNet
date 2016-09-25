@@ -6,7 +6,7 @@ Run "demo_gridpred.m"
 
 - Occupancy Flow in 30% Noise level (click to show)
 
-[![Occupancy Flow](http://img.youtube.com/vi/y6T1CZo3IMs/0.jpg)](https://www.youtube.com/watch?v=y6T1CZo3IMs "Everything Is AWESOME")
+[![Occupancy Flow](http://img.youtube.com/vi/twR3wYjwLrM/0.jpg)](https://www.youtube.com/watch?v=twR3wYjwLrM "Everything Is AWESOME")
 
 - Other videos
 : [OccupancyFlow on Different Noise Levels](https://www.youtube.com/playlist?list=PLtWMojn4UVnyP3HTiRFBxGbZ6lShB16E7)
