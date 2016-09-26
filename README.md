@@ -1,5 +1,5 @@
-# Recurrent Flow Network Implementation in MATLAB
-Recurrent Flow Network for Occupancy Flow ([paper](http://cpslab.snu.ac.kr/publications/papers/2016_IROS_OccFlow.pdf))
+# Recurrent Flow Network
+Recurrent Flow Network for Occupancy Flow Implemented in MATLAB ([paper](http://cpslab.snu.ac.kr/publications/papers/2016_IROS_OccFlow.pdf))
 
 ## Recurrent Flow Network on Different Noise Levels (click to show)
 [![Occupancy Flow](http://img.youtube.com/vi/twR3wYjwLrM/0.jpg)](https://www.youtube.com/watch?v=twR3wYjwLrM "Everything Is AWESOME")
