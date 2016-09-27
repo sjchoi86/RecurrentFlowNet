@@ -1,5 +1,5 @@
 function h = plot_arrow(fr, dist, deg, color, thick)
-% hold on은 되어 있다고 가정
+% hold on?? ???? ?????? ????
 
 if nargin == 3
     color = 'k';
@@ -24,7 +24,6 @@ l_x = c_x + arrow_rate*dist*cos(rad+pi/2);
 l_y = c_y + arrow_rate*dist*sin(rad+pi/2);
 r_x = c_x + arrow_rate*dist*cos(rad-pi/2);
 r_y = c_y + arrow_rate*dist*sin(rad-pi/2);
-
 
 plot([fr_x to_x], [fr_y to_y], 'LineWidth', thick ...
     , 'Color', color);

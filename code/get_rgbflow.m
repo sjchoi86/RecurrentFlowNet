@@ -1,5 +1,6 @@
 function [rgbflowimg, valid_idx, u, v] ...
-    = get_rgbflow(context, predvec, nei_shift_xyi, xres, yres, gain, th)
+    = get_rgbflow(context, predvec, nei_shift_xyi ...
+    , xres, yres, gain, th)
 %
 % Get color-coded RGB image from context vector
 %

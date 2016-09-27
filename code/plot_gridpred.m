@@ -16,7 +16,10 @@ if first_flag
     hobs = '';
     first_flag = false;
 end
+
+
 % ----------------------------------------------------------
+% LEFT FIGURE: INPUT 
 tfs = 20; tft = 'Times New Roman';
 str = sprintf('[%02d][%.2fsec] Input ', tick, sec);
 if isempty(h1)
@@ -36,6 +39,7 @@ end
 
 
 % ----------------------------------------------------------
+% RIGHT FIGURE: OCCFLOW RESULTS 
 str = sprintf('Occupancy Flow took %.1fms (%.1f%% noise)', ems_occflow, err_rate*100);
 if isempty(h2)
     axes('Parent', fig, 'Position', [0.54, 0.08, 0.46, 0.86] );     
@@ -43,7 +47,7 @@ if isempty(h2)
     if plot_dir
         h2 = imagesc(occFlow.g1.xs, occFlow.g1.ys, occflow_predmtx);
         h3 = quiver(xmesh, ymesh, ru, rv ...
-            , 'LineWidth', 2, 'AutoScale', 'off', 'Color', 'r');
+            , 'LineWidth', 1, 'AutoScale', 'off', 'Color', 'r');
         colormap gray;
     else
         h2 = image(occFlow.g1.xs, occFlow.g1.ys ...

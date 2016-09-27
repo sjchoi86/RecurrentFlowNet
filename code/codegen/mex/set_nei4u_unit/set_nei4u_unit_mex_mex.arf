@@ -1,0 +1,15 @@
+libemlrt.lib
+libcovrt.lib
+libut.lib
+libmwblas.lib
+libmwmathutil.lib
+/export:mexFunction
+/export:emlrtMexFcnProperties
+/export:set_nei4u_unit
+/export:b_emxInit_real_T
+/export:emxEnsureCapacity
+/export:emxFree_real_T
+/export:emxInit_real_T
+/export:set_nei4u_unit_initialize
+/export:set_nei4u_unit_terminate
+/export:set_nei4u_unit_atexit

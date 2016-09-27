@@ -23,7 +23,8 @@ layer.nei4usig = nei4usig;
 
 % Set neighboorhood structure
 roundshape = 0;
-layer.nei = set_nei(g, neixres, neiyres, neisig, roundshape);
+layer.nei = set_nei(g.n, g.xyidx, g.nx, g.ny ...
+    , neixres, neiyres, neisig, roundshape);
 layer.nei4u = set_nei4u(g, nei4uxres, nei4uyres, nei4usig, roundshape);
 
 % Update parameters

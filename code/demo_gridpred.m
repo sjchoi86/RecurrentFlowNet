@@ -10,7 +10,7 @@ vrange    = [10 30]; % 10M/S = 36KM/H
 wrange    = [0 40];  % ANGULAR VELOCITY RANGE
 rrange    = [2 4];   % OBJECT RADIUS RANGE
 nr_obs    = 10;      % NUMBER OF OBJECTS
-err_rates = [0.0 0.1 0.2 0.3 0.4];  % ERROR RATE
+err_rates = [0.35];  % ERROR RATE
 maxtick   = 100;
 T         = 0.05;
 
@@ -21,19 +21,21 @@ save_vid  = 0;
 % INIT RECURRENT FLOW NETWORK
 [occFlow.g1, occFlow.l1, occFlow.resize_rate, occFlow.g2, occFlow.l2] ...
     = parse_occflowparams( [ ...
-    3.0 1.393 3.0 2.84 0.99 3.123 2.7946 1.6778 0.1138 0.2955 0.9120 0.7100 0.2600  ...
+    5.0 1.393 3.0 2.84 0.99 3.123 2.7946 1.6778 0.1138 0.2955 0.9120 0.7100 0.2600  ...
     5.0 1.650 3.0 0.72 0.63 8.660 1.2100 4.0330 0.0720 0.5800 0.2800 0.6900 0.2300  ...
     0.5 ] ...
     , xrange, yrange, nx, ny);
 ginfo = set_grid(occFlow.g1.xmin, occFlow.g1.xmax, occFlow.g1.nx ...
     , occFlow.g1.ymin, occFlow.g1.ymax, occFlow.g1.ny);
 
+seedidx = randi([0 10000]);
+
 % INIT FIGURE
 clear plot_gridpred;
 scrsz = get(0,'ScreenSize');
 fig = figure(1); set(fig, 'Position', [200 200 scrsz(3)*0.57 scrsz(4)*0.45]);
 for err_rate = err_rates % FOR EACH ERROR RATES
-    rng(0);
+    rng(seedidx);
     % INIT OBSTACLES
     obs4grid = init_obs4grid(occFlow.g1, nr_obs, rrange, vrange, wrange);
     obs4grid_init = obs4grid;
@@ -63,7 +65,7 @@ for err_rate = err_rates % FOR EACH ERROR RATES
             , 1/occFlow.resize_rate); 
         ems_occflow = etime(clock, iclk)*1000;
         % OCCFLOW -> RGB
-        rgb_gain2 = 0.3; rgb_th = 0.5; % rgb_th = occflow.l2.bin_threshold;
+        rgb_gain2 = 0.3; rgb_th = occFlow.l2.bin_threshold;
         [occFlow.l2.rgbflowimg, valid_idx, u, v] ...
             = get_rgbflow(occFlow.l2.context, occFlow.l2.predvec, occFlow.l2.nei.filter.shift_xyi ...
             , occFlow.g2.nx, occFlow.g2.ny, rgb_gain2, rgb_th);
@@ -131,13 +133,4 @@ end % for eidx = 1:length(err_rate_list) % FOR EACH ERROR RATES
 fprintf(2, 'Done. \n');
 
 %%
-ccc
-tic
-for i = 1:40000
-    for j = 1:9
-        for k =1:9
-            i+j+k;
-        end
-    end
-end
-toc
+

@@ -1,7 +1,7 @@
-function [g1, l1, resize_rate, g2, l2] ...
+function [g1, l1, resize_rate, g2, l2, esec] ...
     = parse_occflowparams(vec, xrange, yrange, nx, ny)
 
-
+iclk = clock;
 occval = 1; noccval = 0;
 
 g1  = set_grid(xrange(1), xrange(2), nx, yrange(1), yrange(2), ny);
@@ -21,6 +21,6 @@ l2 = init_occflowLayer( ...
     , vec(21), vec(22), vec(23) ...
     , vec(24), vec(25), vec(26), occval, noccval ...
     );
-
+esec = etime(clock, iclk);
 
 

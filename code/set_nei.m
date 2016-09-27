@@ -1,23 +1,27 @@
-function nei = set_nei(g, neixres, neiyres, neisig, roundshape)
+function nei ...
+    = set_nei(g_n, g_xyidx, g_nx, g_ny ...
+    , neixres, neiyres, neisig, roundshape)
 
 nei.filter     = set_neifilter(neixres, neiyres, neisig, roundshape);
-nei.nei_idx    = zeros(g.n, nei.filter.n); % 100 is a maximum number of neis per cell
-nei.nei_weight = zeros(g.n, nei.filter.n);
+nei.nei_idx    = zeros(g_n, nei.filter.n);
+nei.nei_weight = zeros(g_n, nei.filter.n);
 nei.filnter_n  = nei.filter.n;
-for i = 1:g.n
-    curr_xyidx = g.xyidx(i, :);
-    for j = 1:nei.filter.n 
-        shift_xyidx = nei.filter.shift_xyi(j, :);
-        nei_xyidx = curr_xyidx + shift_xyidx;
-        if nei_xyidx(1) > 0 && nei_xyidx(2) > 0 && nei_xyidx(1) <= g.nx && nei_xyidx(2) <= g.ny
-            vec_idx = g.ny*(nei_xyidx(1)-1) + nei_xyidx(2);
-            nei.nei_idx(i, j) = vec_idx;
-            nei.nei_weight(i, j) = nei.filter.weight(j);
-        end
-    end
-end
+
+nei_filter_n = nei.filter.n;
+nei_filter_shift_xyi = nei.filter.shift_xyi;
+nei_filter_weight = nei.filter.weight;
 
 
+nei_nei_idx = zeros(size(nei.nei_idx));
+nei_nei_weight = zeros(size(nei.nei_weight));
+% ----------------------------------------------------------------
+[nei_nei_idx, nei_nei_weight] ...
+    = set_nei_unit_mex(nei_nei_idx, nei_nei_weight ...
+    , g_n, g_xyidx, nei_filter_n, nei_filter_shift_xyi ...
+    , g_nx, g_ny, nei_filter_weight);
+% ----------------------------------------------------------------
+nei.nei_idx = nei_nei_idx;
+nei.nei_weight = nei_nei_weight;
 
 function nei = set_neifilter(xres, yres, sig, roundshape)
 %
@@ -31,20 +35,20 @@ center_xi = (xres+1)/2;
 center_yi = (yres+1)/2;
 
 % set filter shape (2d Gaussian)
-nei.f = fspecial('gaussian', [xres yres], sig);
+nei.f = gaussian_filter(xres, yres, sig);
 
-% make it circle! 
+% make it circle!
 if roundshape
     nei.f = getroundfilter(nei.f);
 end
 
-% normalize value so that the center pixel to have 1  
+% normalize value so that the center pixel to have 1
 nei.f = nei.f / nei.f(center_xi, center_yi);
 
 % number of neighbors
 nei.n = xres*yres;
 
-% list of neighbors and weights 
+% list of neighbors and weights
 [mesh_x, mesh_y] = meshgrid(1:xres, 1:yres);
 nei.shift_xyi = [mesh_x(:) mesh_y(:)] - repmat([center_xi, center_yi], nei.n, 1);
 nei.weight = zeros(nei.n, 1);
@@ -75,4 +79,15 @@ for xi = 1:lenx
         end
     end
 end
+
+
+function h = gaussian_filter(xres, yres, sig)
+% set filter shape (2d Gaussian)
+ind = -floor(xres/2) : floor(yres/2);
+[X, Y] = meshgrid(ind, ind);
+%// Create Gaussian Mask
+h = exp(-(X.^2 + Y.^2) / (2*sig*sig));
+%// Normalize so that total area (sum of all weights) is 1
+h = h / sum(h(:));
+
 
