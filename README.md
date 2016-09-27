@@ -7,6 +7,7 @@ Recurrent Flow Network for Occupancy Flow Implemented in MATLAB ([paper](http://
 [Youtube link](https://www.youtube.com/watch?v=twR3wYjwLrM)
 
 ## Recurrent Flow Network with Range Finder Sensor
+![](http://i.giphy.com/LOlU5qiJiXJ4I.gif)
 ![](http://i.giphy.com/YsYA6ilFapqne.gif)
 
 ## Introductory Video (click to show)
