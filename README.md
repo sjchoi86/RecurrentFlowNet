@@ -17,4 +17,4 @@ Run "demo_gridpred.m"
 (runs in Win64 and Mac64)
 
 ## Contact
-: Sungjoon Choi (sungjoon.choi@cpslab.snu.ac.kr)
+sungjoon.choi@cpslab.snu.ac.kr
